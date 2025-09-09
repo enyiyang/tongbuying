@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
             searchBtn.textContent = '查询中...';
             searchBtn.disabled = true;
 
-            const response = await fetch(`/api/member/${phone}`);
+            const response = await fetch(`/api/search/${phone}`);
             const result = await response.json();
 
             if (result.success) {

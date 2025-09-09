@@ -62,11 +62,11 @@
 - [ ] 管理后台可以访问
 
 ### API 功能
-- [ ] `GET /api/member/[phone]` - 查询会员
+- [ ] `GET /api/search/[phone]` - 查询会员（新路径）
 - [ ] `GET /api/members` - 获取所有会员
 - [ ] `POST /api/member` - 添加会员
 - [ ] `POST /api/member` - 更新会员
-- [ ] `POST /api/member/[id]/benefits` - 更新权益
+- [ ] `POST /api/benefits/[id]` - 更新权益（新路径）
 - [ ] `DELETE /api/member/[id]` - 删除会员
 
 ### 数据持久化
@@ -81,6 +81,15 @@
 - 这是 `vercel.json` 配置问题
 - 解决方案：使用简化的配置，让 Vercel 自动检测运行时
 - 确保 `vercel.json` 不包含复杂的 `functions` 配置
+
+### 2. 部署时报错 "Two or more files have conflicting paths"
+- 这是动态路由冲突问题
+- 原因：`api/member/[phone].js` 和 `api/member/[id]/benefits.js` 路径冲突
+- 解决方案：已重新组织 API 结构
+  - `api/search/[phone].js` - 查询会员
+  - `api/member/[id].js` - 删除会员  
+  - `api/benefits/[id].js` - 更新权益
+- 前端代码已更新为使用新的 API 路径
 
 ### 2. API 返回 500 错误
 - 检查 Vercel 函数日志

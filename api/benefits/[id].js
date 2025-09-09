@@ -1,4 +1,4 @@
-import { fetchMembersWithShaFromGitHub, saveMembersToGitHub } from '../../utils/github.js';
+import { fetchMembersWithShaFromGitHub, saveMembersToGitHub } from '../utils/github.js';
 
 // 更新会员权益状态
 export default async function handler(req, res) {
