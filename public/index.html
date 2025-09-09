@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>会员权益查询</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>会员权益查询</h1>
+            <p>请输入手机号查询您的会员权益信息</p>
+        </div>
+
+        <div class="search-section">
+            <div class="search-box">
+                <input type="tel" id="phoneInput" placeholder="请输入手机号" maxlength="11">
+                <button id="searchBtn">查询</button>
+            </div>
+        </div>
+
+        <div id="result" class="result-section" style="display: none;">
+            <div class="member-info">
+                <div class="info-item">
+                    <span class="label">1</span>
+                    <div class="content">
+                        <h3>微信昵称</h3>
+                        <div class="value" id="nickname"></div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">2</span>
+                    <div class="content">
+                        <h3>手机号</h3>
+                        <div class="value" id="phones"></div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">3</span>
+                    <div class="content">
+                        <h3>会员到期时间</h3>
+                        <div class="value" id="expiry"></div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">4</span>
+                    <div class="content">
+                        <h3>会员费用</h3>
+                        <div class="value" id="fee"></div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">5</span>
+                    <div class="content">
+                        <h3>权益描述</h3>
+                        <div class="benefits-list" id="benefits"></div>
+                    </div>
+                </div>
+
+                <div class="info-item">
+                    <span class="label">6</span>
+                    <div class="content">
+                        <h3>课程权益</h3>
+                        <div class="benefits-list" id="courses"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="noResult" class="no-result" style="display: none;">
+            <p>未找到该手机号对应的会员信息</p>
+        </div>
+
+        <div class="admin-link">
+            <a href="/admin">管理员入口</a>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

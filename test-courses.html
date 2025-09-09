@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>课程功能测试</title>
+    <style>
+        .course-editor-item {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+        input[type="text"] {
+            width: 200px;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h2>课程编辑器测试</h2>
+    
+    <div id="coursesList">
+        <div class="course-editor-item">
+            <input type="checkbox" checked>
+            <input type="text" value="基础课程" placeholder="输入课程名称">
+            <button onclick="removeCourse(this)">删除</button>
+        </div>
+    </div>
+    
+    <button onclick="addCourse()">添加课程</button>
+    <button onclick="testGetCourses()">测试获取课程</button>
+    
+    <div id="result"></div>
+
+    <script>
+        function addCourse() {
+            const coursesList = document.getElementById('coursesList');
+            const item = document.createElement('div');
+            item.className = 'course-editor-item';
+            item.innerHTML = `
+                <input type="checkbox" checked>
+                <input type="text" placeholder="输入课程名称">
+                <button onclick="removeCourse(this)">删除</button>
+            `;
+            coursesList.appendChild(item);
+        }
+
+        function removeCourse(button) {
+            button.parentElement.remove();
+        }
+
+        function testGetCourses() {
+            console.log('=== 开始获取课程数据 ===');
+            const coursesList = document.getElementById('coursesList');
+            if (!coursesList) {
+                console.error('错误：找不到 coursesList 元素');
+                return [];
+            }
+            
+            console.log('coursesList 存在，子元素数量:', coursesList.children.length);
+            
+            const courses = [];
+            const items = coursesList.querySelectorAll('.course-editor-item');
+            
+            console.log('找到课程项目数:', items.length);
+            
+            items.forEach((item, index) => {
+                console.log(`处理课程项目 ${index + 1}`);
+                const checkbox = item.querySelector('input[type="checkbox"]');
+                const textInput = item.querySelector('input[type="text"]');
+                
+                console.log('复选框:', checkbox ? checkbox.checked : '未找到');
+                console.log('文本输入:', textInput ? textInput.value : '未找到');
+                
+                if (textInput && textInput.value.trim()) {
+                    const course = {
+                        text: textInput.value.trim(),
+                        used: checkbox ? checkbox.checked : false
+                    };
+                    courses.push(course);
+                    console.log('添加课程:', course);
+                }
+            });
+            
+            console.log('最终课程数组:', courses);
+            document.getElementById('result').innerHTML = '<pre>' + JSON.stringify(courses, null, 2) + '</pre>';
+            return courses;
+        }
+    </script>
+</body>
+</html>

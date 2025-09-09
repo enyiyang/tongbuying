@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>会员权益管理后台</title>
+    <link rel="stylesheet" href="admin-style.css">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>会员权益管理后台</h1>
+            <div class="header-actions">
+                <button id="addMemberBtn" class="btn btn-primary">添加会员</button>
+                <a href="/" class="btn btn-secondary">返回查询页面</a>
+            </div>
+        </div>
+
+        <div class="members-list">
+            <table id="membersTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>微信昵称</th>
+                        <th>手机号</th>
+                        <th>到期时间</th>
+                        <th>会员费用</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <tbody id="membersTableBody">
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- 添加/编辑会员模态框 -->
+    <div id="memberModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">添加会员</h2>
+                <span class="close">&times;</span>
+            </div>
+            <form id="memberForm">
+                <input type="hidden" id="memberId">
+                
+                <div class="form-group">
+                    <label for="memberNickname">微信昵称:</label>
+                    <input type="text" id="memberNickname" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="memberPhones">手机号 (多个用逗号分隔):</label>
+                    <input type="text" id="memberPhones" placeholder="13800138000,13900139000" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="memberExpiry">会员到期时间:</label>
+                    <input type="date" id="memberExpiry" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="memberFee">会员费用:</label>
+                    <input type="number" id="memberFee" required>
+                </div>
+
+                <div class="form-group">
+                    <label>权益描述:</label>
+                    <div id="benefitsList" class="benefits-editor">
+                        <!-- 权益列表将在这里动态生成 -->
+                    </div>
+                    <button type="button" id="addBenefitBtn" class="btn btn-secondary">+ 添加权益</button>
+                </div>
+
+                <div class="form-group">
+                    <label>课程权益:</label>
+                    <div id="coursesList" class="benefits-editor">
+                        <!-- 课程列表将在这里动态生成 -->
+                    </div>
+                    <button type="button" id="addCourseBtn" class="btn btn-secondary">+ 添加课程</button>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">保存</button>
+                    <button type="button" class="btn btn-secondary" id="cancelBtn">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>

@@ -1,0 +1,426 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.header {
+    text-align: center;
+    color: white;
+    margin-bottom: 40px;
+}
+
+.header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+    font-weight: 300;
+}
+
+.header p {
+    font-size: 1.1rem;
+    opacity: 0.9;
+}
+
+.search-section {
+    margin-bottom: 40px;
+}
+
+.search-box {
+    display: flex;
+    gap: 10px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    outline: none;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    -webkit-appearance: none;
+    -webkit-border-radius: 25px;
+}
+
+.search-box button {
+    padding: 15px 30px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    -webkit-appearance: none;
+    -webkit-border-radius: 25px;
+    touch-action: manipulation;
+}
+
+.search-box button:hover {
+    background: #ff5252;
+}
+
+.result-section {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.member-info {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.label {
+    background: #667eea;
+    color: white;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.content {
+    flex: 1;
+}
+
+.content h3 {
+    color: #333;
+    margin-bottom: 8px;
+    font-size: 1.1rem;
+}
+
+.value {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    border-radius: 10px;
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+.expiry-info {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.days-remaining {
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+}
+
+.days-remaining.active {
+    color: #28a745;
+    background: rgba(40, 167, 69, 0.1);
+}
+
+.days-remaining.warning {
+    color: #ffc107;
+    background: rgba(255, 193, 7, 0.1);
+}
+
+.days-remaining.expired {
+    color: #dc3545;
+    background: rgba(220, 53, 69, 0.1);
+}
+
+.benefits-list {
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+    color: #333;
+    padding: 8px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.benefit-item:last-child {
+    margin-bottom: 0;
+}
+
+.benefit-item.used {
+    background: rgba(108, 117, 125, 0.1);
+}
+
+.benefit-item.available {
+    background: rgba(40, 167, 69, 0.05);
+}
+
+.benefit-checkbox {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    flex-shrink: 0;
+    font-weight: bold;
+}
+
+.benefit-checkbox.checked {
+    background: #6c757d;
+    color: white;
+}
+
+.benefit-checkbox.unchecked {
+    background: #28a745;
+    color: white;
+}
+
+.benefit-text.used-text {
+    color: #6c757d;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.no-result {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-in;
+}
+
+.no-result p {
+    color: #666;
+    font-size: 1.1rem;
+}
+
+.admin-link {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.admin-link a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    border: 2px solid white;
+    border-radius: 25px;
+    transition: all 0.3s;
+}
+
+.admin-link a:hover {
+    background: white;
+    color: #667eea;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .container {
+        padding: 0;
+    }
+    
+    .header {
+        margin-bottom: 20px;
+    }
+    
+    .header h1 {
+        font-size: 1.8rem;
+        margin-bottom: 8px;
+    }
+    
+    .header p {
+        font-size: 1rem;
+    }
+    
+    .search-section {
+        margin-bottom: 20px;
+    }
+    
+    .search-box {
+        flex-direction: column;
+        max-width: 100%;
+        gap: 15px;
+    }
+    
+    .search-box input {
+        padding: 18px 20px;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+    
+    .search-box button {
+        padding: 18px 30px;
+        font-size: 16px;
+        border-radius: 12px;
+    }
+    
+    .result-section {
+        padding: 20px;
+        border-radius: 15px;
+        margin: 0 5px;
+    }
+    
+    .member-info {
+        gap: 20px;
+    }
+    
+    .info-item {
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 15px;
+        padding: 15px;
+        background: #f8f9fa;
+        border-radius: 12px;
+        margin-bottom: 10px;
+    }
+    
+    .label {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+        flex-shrink: 0;
+        margin-top: 2px;
+    }
+    
+    .content {
+        flex: 1;
+        min-width: 0;
+    }
+    
+    .content h3 {
+        font-size: 1rem;
+        margin-bottom: 10px;
+        color: #667eea;
+        font-weight: 600;
+        display: inline-block;
+        margin-right: 10px;
+    }
+    
+    .value {
+        background: white;
+        padding: 12px 15px;
+        border-radius: 8px;
+        font-size: 15px;
+        border: 1px solid #e9ecef;
+        line-height: 1.4;
+    }
+    
+    .benefits-list {
+        background: white;
+        padding: 15px;
+        border-radius: 8px;
+        border: 1px solid #e9ecef;
+    }
+    
+    .benefit-item {
+        margin-bottom: 15px;
+        padding: 10px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        font-size: 14px;
+        line-height: 1.4;
+    }
+    
+    .benefit-checkbox {
+        width: 16px;
+        height: 16px;
+        font-size: 10px;
+    }
+    
+    .no-result {
+        padding: 30px 20px;
+        margin: 0 5px;
+        border-radius: 15px;
+    }
+    
+    .admin-link {
+        margin-top: 20px;
+        padding: 0 5px;
+    }
+    
+    .admin-link a {
+        display: block;
+        text-align: center;
+        padding: 15px 20px;
+        font-size: 16px;
+    }
+}
+
+/* 针对小屏幕的额外优化 */
+@media (max-width: 480px) {
+    .header h1 {
+        font-size: 1.6rem;
+    }
+    
+    .result-section {
+        padding: 15px;
+        margin: 0;
+    }
+    
+    .info-item {
+        padding: 12px;
+        gap: 12px;
+    }
+    
+    .label {
+        width: 22px;
+        height: 22px;
+        font-size: 13px;
+    }
+    
+    .content h3 {
+        font-size: 0.95rem;
+        margin-bottom: 8px;
+    }
+    
+    .value {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .benefit-item {
+        padding: 8px;
+        font-size: 13px;
+    }
+}

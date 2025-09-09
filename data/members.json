@@ -1,0 +1,138 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "nickname": "张三",
+      "phones": [
+        "13610370970",
+        "13856049283"
+      ],
+      "membershipExpiry": "2026-07-27",
+      "membershipFee": 1200,
+      "benefits": [
+        {
+          "text": "自购买日起同步享365天服务权益",
+          "used": true
+        },
+        {
+          "text": "全面认知提升大咖直播课24次",
+          "used": false
+        },
+        {
+          "text": "认知宝典经典汇编册电子版",
+          "used": true
+        },
+        {
+          "text": "同频高认知女性社群",
+          "used": false
+        },
+        {
+          "text": "彬彬姐信息同步学习权",
+          "used": false
+        }
+      ],
+      "courses": [
+        {
+          "text": "JavaScript基础课程",
+          "used": true
+        },
+        {
+          "text": "React进阶课程",
+          "used": false
+        },
+        {
+          "text": "Node.js实战课程",
+          "used": false
+        }
+      ],
+      "createdAt": "2025-09-09T06:00:00.000Z",
+      "updatedAt": "2025-09-09T06:00:00.000Z"
+    },
+    {
+      "id": 2,
+      "nickname": "李四",
+      "phones": [
+        "18888888888"
+      ],
+      "membershipExpiry": "2025-12-31",
+      "membershipFee": 800,
+      "benefits": [
+        {
+          "text": "基础会员权益",
+          "used": false
+        },
+        {
+          "text": "月度直播课程",
+          "used": true
+        }
+      ],
+      "courses": [
+        {
+          "text": "HTML/CSS基础",
+          "used": true
+        }
+      ],
+      "createdAt": "2025-09-09T06:00:00.000Z",
+      "updatedAt": "2025-09-09T06:00:00.000Z"
+    },
+    {
+      "id": 3,
+      "nickname": "王五",
+      "phones": [
+        "15503916175"
+      ],
+      "membershipExpiry": "2025-09-09",
+      "membershipFee": 1111,
+      "benefits": [
+        {
+          "text": "测试权益1",
+          "used": true
+        },
+        {
+          "text": "测试权益2",
+          "used": false
+        }
+      ],
+      "courses": [
+        {
+          "text": "测试课程1",
+          "used": false
+        },
+        {
+          "text": "测试课程2",
+          "used": true
+        }
+      ],
+      "createdAt": "2025-09-09T06:00:00.000Z",
+      "updatedAt": "2025-09-09T06:00:00.000Z"
+    },
+    {
+      "id": 4,
+      "nickname": "啊啊啊啊",
+      "phones": [
+        "15503916176"
+      ],
+      "membershipExpiry": "2025-09-02",
+      "membershipFee": 111,
+      "benefits": [
+        {
+          "text": "啊打法",
+          "used": true
+        }
+      ],
+      "courses": [
+        {
+          "text": "阿道夫",
+          "used": true
+        },
+        {
+          "text": "发生的发都发",
+          "used": false
+        }
+      ],
+      "createdAt": "2025-09-09T06:20:51.401Z",
+      "updatedAt": "2025-09-09T06:20:51.401Z"
+    }
+  ],
+  "lastUpdated": "2025-09-09T06:20:51.403Z"
+}
