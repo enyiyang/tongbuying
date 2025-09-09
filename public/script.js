@@ -36,6 +36,16 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // 先检查缓存
+        if (window.cacheHelper) {
+            const cachedResult = window.cacheHelper.getCachedMemberSearch(phone);
+            if (cachedResult) {
+                console.log('使用缓存数据');
+                displayMemberInfo(cachedResult);
+                return;
+            }
+        }
+
         try {
             searchBtn.textContent = '查询中...';
             searchBtn.disabled = true;
@@ -44,13 +54,28 @@ document.addEventListener('DOMContentLoaded', function() {
             const result = await response.json();
 
             if (result.success) {
+                // 缓存查询结果
+                if (window.cacheHelper) {
+                    window.cacheHelper.cacheMemberSearch(phone, result.data);
+                }
                 displayMemberInfo(result.data);
             } else {
                 showNoResult();
             }
         } catch (error) {
             console.error('查询失败:', error);
-            alert('查询失败，请稍后重试');
+            
+            // 网络错误时尝试使用缓存
+            if (window.cacheHelper && !window.cacheHelper.isOnline()) {
+                const cachedResult = window.cacheHelper.getCachedMemberSearch(phone);
+                if (cachedResult) {
+                    console.log('网络离线，使用缓存数据');
+                    displayMemberInfo(cachedResult);
+                    return;
+                }
+            }
+            
+            alert('查询失败，请检查网络连接后重试');
         } finally {
             searchBtn.textContent = '查询';
             searchBtn.disabled = false;
