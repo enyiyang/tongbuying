@@ -77,17 +77,22 @@
 
 ## ❗ 常见问题
 
-### 1. API 返回 500 错误
+### 1. 部署时报错 "Function Runtimes must have a valid version"
+- 这是 `vercel.json` 配置问题
+- 解决方案：使用简化的配置，让 Vercel 自动检测运行时
+- 确保 `vercel.json` 不包含复杂的 `functions` 配置
+
+### 2. API 返回 500 错误
 - 检查 Vercel 函数日志
 - 确认 `GITHUB_TOKEN` 环境变量设置正确
 - 检查 GitHub API 限制
 
-### 2. 搜索没有结果
+### 3. 搜索没有结果
 - 确认 `data/members.json` 文件存在
 - 检查文件格式是否正确
 - 查看浏览器控制台错误
 
-### 3. 数据保存失败
+### 4. 数据保存失败
 - 检查 GitHub Token 权限
 - 确认仓库路径正确
 - 查看 GitHub API 响应
